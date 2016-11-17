@@ -1,6 +1,6 @@
 module SessionsHelper
-  def sign_in
-    session[:user_id] = @user.id
+  def sign_in user
+    session[:user_id] = user.id
   end
 
   def current_user
@@ -19,6 +19,6 @@ module SessionsHelper
 
   def sign_out
     session.delete(:user_id)
-    @current_user = nil
+    redirect_to root_url
   end
 end

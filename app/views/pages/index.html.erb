@@ -1,1 +1,3 @@
-<%= render partial: "sessions/login" %>
+<% if not logged_in? %>
+	<%= render partial: "sessions/login" %>
+<%end%>

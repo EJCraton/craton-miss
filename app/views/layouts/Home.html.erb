@@ -45,47 +45,36 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" <%= link_to "CratonMiss", root_path %></a>
+        <a class="navbar-brand" href="#">CratonMiss</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-          <%if logged_in? %>
-            <li><%= link_to "Logout", sign_out_path , method: "delete"%></li>
             <li><%= link_to "Link1", "/path1"  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
             <li><%= link_to "Link3", "/path3"  %></li>
-          <% else %>
-            <li><%= link_to "Sign up", signup_user_path %> </li>
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          <% end %>
           </ul>
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <% if logged_in? %>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
+            <h3>Sidebar</h3>
             <ul class="nav nav-list">
-            <form class="form-inline float-xs-right">
-              <input class="form-control" type="text" placeholder="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-                <h3>Sidebar</h3>
-              <li><%= link_to "Imagens de satélites", root_path  %></li>
-              <li><%= link_to "Projetos ArcGIS", root_path  %></li>
-              <li><%= link_to "Shapes", root_path  %></li>
+              <li class="nav-header">Sidebar</li>
+              <li><%= link_to "Link1", "/path1"  %></li>
+              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
-      <% end %>
+
       <footer>
         <p>&copy; Company 2016</p>
       </footer>
