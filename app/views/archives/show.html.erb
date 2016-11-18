@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
-
 <div class="card sticky-action z-depth-3">
   <div class="card-image waves-effect waves-block waves-light">
     <%= image_tag @archive.avatar.url(:medium), class:'activator' %>
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4 flow-text"><%= @archive.name %><i class="material-icons right">more_vert</i></span>
-    <p><%= link_to 'Download', @archive.avatar(:original), :"download"=>"#{@archive.name}#{@archive.id}" %><p>
+    <span class="card-title activator grey-text text-darken-4 flow-text"><%= @archive.name %></span>
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4"><%= @archive.name %><i class="material-icons right">close</i></span>
     <p><%= @archive.description %></p>
   </div>
   <div class="card-action">
-    <%= link_to edit_archive_path(@archive), class:'waves-effect waves-teal btn-flat' do %>
+    <%= link_to edit_archive_path(@archive), class:'waves-effect waves-teal btn-flat btn-color' do %>
       <i class="material-icons">edit</i>
       Editar
     <% end %>
-    <%= link_to archives_path, class:'waves-effect waves-teal btn-flat' do %>
+    <%= link_to archives_path, class:'waves-effect waves-teal btn-flat btn-color' do %>
       <i class="material-icons">assignment_return</i>
       Voltar
+    <% end %>
+    <%= link_to @archive.avatar(:original), :"download"=>"#{@archive.name}#{@archive.id}", class:"btn-floating btn-large waves-effect waves-light red btn-right" do %>
+      <i class="material-icons">file_download</i>
     <% end %>
   </div>
 </div>

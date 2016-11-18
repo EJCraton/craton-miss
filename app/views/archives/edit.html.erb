@@ -1,12 +1,18 @@
-<h1>Editar Arquivo</h1>
+<h1 class="center-align">Editar Arquivo</h1>
 
 <%= render 'form', archive: @archive %>
 
-<%= link_to @archive, class:'waves-effect waves-teal btn-flat' do %>
-  <i class="material-icons">image</i>
-  Mostrar
-<% end %>
-<%= link_to archives_path, class:'waves-effect waves-teal btn-flat' do %>
-  <i class="material-icons">assignment_return</i>
-  Voltar
-<% end %>
+<div class="row center-align">
+  <div class="col s12 m6 l6">
+    <%= link_to @archive, class:'waves-effect waves-teal btn-flat' do %>
+      <i class="material-icons">image</i>
+      <span class="link-align">Mostrar</span>
+    <% end %>
+  </div>
+  <div class="col s12 m6 l6">
+    <%= link_to archives_path, class:'waves-effect waves-teal btn-flat' do %>
+      <i class="material-icons">assignment_return</i>
+      Voltar
+    <% end %>
+  </div>
+</div>

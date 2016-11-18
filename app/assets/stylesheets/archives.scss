@@ -1,3 +1,30 @@
-// Place all the styles related to the archives controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.collapsible-body {
+  padding: 15px;
+}
+
+.btn-flat:focus, .btn-flat:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.btn-color {
+  color: black !important;
+}
+
+.btn-right {
+  float: right !important;
+  bottom: 50px;
+}
+
+.card {
+  margin: -30px !important;
+}
+
+.material-icons {
+  vertical-align: top;
+}
+
+#notice {
+  line-height: 0px;
+  margin: 10px;
+}
