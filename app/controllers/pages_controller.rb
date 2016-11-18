@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
 
   def upload
-  	
+  	@user = current_user
   end
 
   def create

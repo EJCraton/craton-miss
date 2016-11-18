@@ -1,12 +1,3 @@
-upload
-
-<%= form_for :user, url: "/pictures", :html => {:multipart => true} do |f| %>
-	<%= f.fields_for :pictures do |p| %>
-   	<%= p.file_field :image %>
-   <% end %>
-  <%= f.submit 'go' %>
-<% end %>
-
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
@@ -22,7 +13,13 @@ upload
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="sat" role="tabpanel"></div>
-  <div class="tab-pane" id="arcgis" role="tabpanel">...</div>
-  <div class="tab-pane" id="shapes" role="tabpanel">...</div>
+  <div class="tab-pane active" id="sat" role="tabpanel">
+      <%= render "upload_sat"%>  
+  </div>
+  <div class="tab-pane" id="arcgis" role="tabpanel">
+     <%= render "upload_arcgis" %>
+  </div>
+  <div class="tab-pane" id="shapes" role="tabpanel">
+     <%= render "upload_shape" %>
+  </div>
 </div>

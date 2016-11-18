@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get '/pages/upload' => 'pages#upload'
 
   resources :pictures
+  resources :shapes
+  resources :arcgis
 end
