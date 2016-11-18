@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :archives
-  get 'sessions/new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
@@ -12,5 +11,4 @@ Rails.application.routes.draw do
   post   'sign_in'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'
 
-  get '/pages/upload' => 'pages#upload'
 end
