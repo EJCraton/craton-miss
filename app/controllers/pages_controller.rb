@@ -6,4 +6,15 @@ class PagesController < ApplicationController
   def upload
   	
   end
+
+  def create
+		@user = current_user
+		@user.build_pictures
+
+	end
+
+	private
+	def pictures_params
+		params.require(:user).permit(pictures_attributes: [:id, :image[]])
+	end
 end

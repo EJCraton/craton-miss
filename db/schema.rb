@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20161118012338) do
 
   create_table "pictures", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_pictures_on_user_id"

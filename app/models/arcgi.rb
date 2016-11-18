@@ -1,0 +1,2 @@
+class Arcgi < ApplicationRecord
+end

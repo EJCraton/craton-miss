@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   delete 'sign_out'  => 'sessions#destroy'
 
   get '/pages/upload' => 'pages#upload'
+
+  resources :pictures
 end
