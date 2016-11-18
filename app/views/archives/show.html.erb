@@ -1,7 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-  <%= image_tag @archive.avatar.url(:medium) %>
-  <%= link_to 'Download', @archive.avatar(:original), :"download"=>"Image#{@archive.id}" %>
+<div class="card sticky-action z-depth-3">
+  <div class="card-image waves-effect waves-block waves-light">
+    <%= image_tag @archive.avatar.url(:medium), class:'activator' %>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4 flow-text"><%= @archive.name %><i class="material-icons right">more_vert</i></span>
+    <p><%= link_to 'Download', @archive.avatar(:original), :"download"=>"#{@archive.name}#{@archive.id}" %><p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><%= @archive.name %><i class="material-icons right">close</i></span>
+    <p><%= @archive.description %></p>
+  </div>
+  <div class="card-action">
+    <%= link_to edit_archive_path(@archive), class:'waves-effect waves-teal btn-flat' do %>
+      <i class="material-icons">edit</i>
+      Editar
+    <% end %>
+    <%= link_to archives_path, class:'waves-effect waves-teal btn-flat' do %>
+      <i class="material-icons">assignment_return</i>
+      Voltar
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_archive_path(@archive) %> |
-<%= link_to 'Back', archives_path %>

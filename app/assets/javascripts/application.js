@@ -17,4 +17,7 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require_tree .
+//= require materialize-sprockets
+//= require materialize/extras/nouislider
+
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118001145) do
+ActiveRecord::Schema.define(version: 20161118024926) do
 
   create_table "archives", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20161118001145) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "name"
+    t.string   "description"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,8 @@
-<h1>New Archive</h1>
+<h1>Novo arquivo</h1>
 
 <%= render 'form', archive: @archive %>
 
-<%= link_to 'Back', archives_path %>
+<%= link_to archives_path, class:'waves-effect waves-teal btn-flat' do %>
+  <i class="material-icons">assignment_return</i>
+  Voltar
+<% end %>
