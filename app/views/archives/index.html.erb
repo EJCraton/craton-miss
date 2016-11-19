@@ -1,9 +1,19 @@
 <div class="row">
   <div class="col s12 m12 l12">
     <%= search_form_for @q do |f| %>
-      <%= f.label :name_cont %>
-      <%= f.search_field :name_cont %>
-      <%= f.submit %>
+      <div class="row">
+        <div class="input-field">
+          <i class="material-icons prefix">search</i>
+          <%= f.search_field :name_cont, id:"search" %>
+          <label for="search">Pesquisar</label>
+        </div>
+      </div>
+      <div class="row center-align">
+        <button class="btn waves-effect waves-light">
+          <i class="material-icons right">search</i>
+          <%= f.submit 'Pesquisar' %>
+        </button>
+      </div>
     <% end %>
   </div>
 </div>
@@ -14,40 +24,17 @@
     <p class="center-align"><%= sort_link(@q, :name, "Ordenar", default_order: :asc) %></p>
   </div>
 </div>
+
 <div class="row">
   <div class="col s12 m12 l12">
-    <ul class="collapsible popout" data-collapsible="accordion">
+    <div class="carousel">
       <% @archives.each do |archive| %>
-        <li>
-          <div class="collapsible-header center-align"><%= archive.name %></div>
-          <div class="collapsible-body">
-            <div class="row center-align">
-              <%= image_tag archive.avatar.url(:thumb) %>
-            </div>
-            <div class="row center-align">
-              <div class="col s12 m4 l4">
-                <%= link_to archive, class:'waves-effect waves-teal btn-flat' do %>
-                  <i class="material-icons">image</i>
-                  Mostrar
-                <% end %>
-              </div>
-              <div class="col s12 m4 l4">
-                <%= link_to edit_archive_path(archive), class:'waves-effect waves-teal btn-flat' do %>
-                  <i class="material-icons">edit</i>
-                  Editar
-                <% end %>
-              </div>
-              <div class="col s12 m4 l4">
-                <%= link_to archive, method: :delete, data: { confirm: 'Are you sure?' }, class:'waves-effect waves-teal btn-flat' do %>
-                  <i class="material-icons">delete</i>
-                  Deletar
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </li>
+        <%= link_to archive, class:"carousel-item" do %>
+          <%= image_tag archive.avatar.url(:medium) %>
+          <p class="center-align bold"><%= archive.name %></p>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>
 
@@ -56,3 +43,7 @@
     <i class="large material-icons">mode_edit</i>
   <% end %>
 </div>
+
+<script>
+  $('.carousel').carousel();
+</script>
