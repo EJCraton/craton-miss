@@ -1,3 +1,4 @@
+//Buttons ---------------------------------------
 .btn-flat:focus, .btn-flat:hover {
   color: black;
   text-decoration: none;
@@ -14,24 +15,7 @@
   right: 1em;
 }
 
-.card {
-  margin: -30px !important;
-}
-
-.img-link img {
-  width: 130px !important;
-  height: 130px !important;
-}
-
-.material-icons {
-  vertical-align: top;
-}
-
-#notice {
-  line-height: 0px;
-  margin: 10px;
-}
-
+// Links ----------------------------------------
 a:hover {
   color: black !important;
   text-decoration: none !important;
@@ -41,11 +25,43 @@ a:hover {
   background-color: inherit !important;
 }
 
+// Orders ---------------------------------------
 .bold {
   font-weight: bold;
   height: 20px;
 }
 
+#notice {
+  line-height: 0px;
+  margin: 10px;
+}
+
+.parallax-container {
+  height: "300";
+}
+
+// Images ---------------------------------------
+.material-icons {
+  vertical-align: top;
+}
+
+.img-link img {
+  width: 130px !important;
+  height: 130px !important;
+}
+
+// Forms ----------------------------------------
+.input-field input[type=search] {
+  font-size: 2em;
+  padding-left: 1rem !important;
+  margin-left: 4rem !important;
+}
+
+.input-field .prefix {
+  font-size: 3rem !important;
+}
+
+// Pagination -----------------------------------
 .pagination {
   display: inline-block;
   padding-left: 0;
@@ -91,6 +107,7 @@ a:hover {
   cursor: not-allowed;
 }
 
+// Responsiveness -------------------------------
 @media only screen and (min-width: 601px) {
   .row .col.m3 {
     width: 30% !important;
