@@ -2,7 +2,8 @@ class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
 
   def index
-    @archives = Archive.all
+    @q = Archive.ransack(params[:q])
+    @archives = @q.result
   end
 
   def show

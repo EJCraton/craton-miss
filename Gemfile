@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem "paperclip", "~> 5.0.0"
 # Materialize
 gem 'materialize-sass'
+# Pesquisa com ransack
+gem 'ransack'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

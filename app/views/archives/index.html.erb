@@ -1,6 +1,17 @@
 <div class="row">
   <div class="col s12 m12 l12">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :name_cont %>
+      <%= f.search_field :name_cont %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m12 l12">
     <h2 class="center-align">Arquivos de imagem</h2>
+    <p class="center-align"><%= sort_link(@q, :name, "Ordenar", default_order: :asc) %></p>
   </div>
 </div>
 <div class="row">
