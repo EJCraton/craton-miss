@@ -28,3 +28,27 @@
   line-height: 0px;
   margin: 10px;
 }
+
+.carousel .carousel-item {
+  background-color: transparent;
+  width: 300px !important;
+}
+
+.carousel {
+  height: 460px !important;
+  perspective: 400px !important;
+  bottom: 50px;
+}
+
+a:hover {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.sort_link {
+  background-color: inherit !important;
+}
+
+.bold {
+  font-weight: bold;
+}

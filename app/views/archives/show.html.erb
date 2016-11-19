@@ -10,17 +10,31 @@
     <p><%= @archive.description %></p>
   </div>
   <div class="card-action">
-    <%= link_to edit_archive_path(@archive), class:'waves-effect waves-teal btn-flat btn-color' do %>
-      <i class="material-icons">edit</i>
-      Editar
-    <% end %>
-    <%= link_to archives_path, class:'waves-effect waves-teal btn-flat btn-color' do %>
-      <i class="material-icons">assignment_return</i>
-      Voltar
-    <% end %>
-    <%= link_to @archive.avatar(:original), :"download"=>"#{@archive.name}#{@archive.id}", class:"btn-floating btn-large waves-effect waves-light red btn-right" do %>
-      <i class="material-icons">file_download</i>
-    <% end %>
+    <div class="row">
+      <div class="col s12 m3 l3">
+        <%= link_to edit_archive_path(@archive), class:'waves-effect waves-teal btn-flat btn-color' do %>
+          <i class="material-icons">edit</i>
+          Editar
+        <% end %>
+      </div>
+      <div class="col s12 m3 l3">
+        <%= link_to archives_path, class:'waves-effect waves-teal btn-flat btn-color' do %>
+          <i class="material-icons">assignment_return</i>
+          Voltar
+        <% end %>
+      </div>
+      <div class="col s12 m3 l3">
+        <%= link_to @archive, method: :delete, data: { confirm: 'Are you sure?' }, class:'waves-effect waves-teal btn-flat btn-color' do %>
+          <i class="material-icons">delete</i>
+          Deletar
+        <% end %>
+      </div>
+      <div class="col s12 m3 l3">
+        <%= link_to @archive.avatar(:original), :"download"=>"#{@archive.name}#{@archive.id}", class:"btn-floating btn-large waves-effect waves-light red btn-right" do %>
+          <i class="material-icons">file_download</i>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
