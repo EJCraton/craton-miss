@@ -4,8 +4,7 @@
       <div class="row">
         <div class="input-field">
           <i class="material-icons prefix">search</i>
-          <%= f.search_field :name_cont, id:"search" %>
-          <label for="search">Pesquisar</label>
+          <%= f.search_field :name_cont %>
         </div>
       </div>
       <div class="row center-align">
@@ -25,16 +24,20 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col s12 m12 l12">
-    <div class="carousel">
-      <% @archives.each do |archive| %>
-        <%= link_to archive, class:"carousel-item" do %>
-          <%= image_tag archive.avatar.url(:medium) %>
-          <p class="center-align bold"><%= archive.name %></p>
-        <% end %>
+<div class="row card center-align">
+  <% @archives.each do |archive| %>
+    <div class="col s12 m3 l2">
+      <%= link_to archive, class:"img-link" do %>
+        <%= image_tag archive.avatar.url(:medium) %>
+        <p class="center-align bold"><%= archive.name %></p>
       <% end %>
     </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col s12 m12 l12">
+    <%= will_paginate @archives, previous_label:h("<"), next_label:h(">") %>
   </div>
 </div>
 
@@ -44,6 +47,3 @@
   <% end %>
 </div>
 
-<script>
-  $('.carousel').carousel();
-</script>

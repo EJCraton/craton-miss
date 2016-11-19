@@ -3,7 +3,7 @@ class ArchivesController < ApplicationController
 
   def index
     @q = Archive.ransack(params[:q])
-    @archives = @q.result
+    @archives = @q.result.page(params[:page]).per_page(2)
   end
 
   def show
