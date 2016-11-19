@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   post   'sign_in'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'
 
+  get '/pages/upload' => 'pages#upload'
+
+  resources :pictures
+  resources :shapes
+  resources :arcgis
 end
