@@ -17,7 +17,22 @@
     <div class="input-field">
       <i class="material-icons prefix">label</i>
       <%= f.text_field :name, class:'validate', id:'title' %>
-      <label for="title">Título</label>
+      <label for="title" class="active">Título</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field">
+      <i class="material-icons prefix">label</i>
+      <select name="archive[category]" class="icons">
+        <option value="" disabled selected>Escolha a categoria</option>
+        <option value="Imagens de satélite">Imagens de satélite</option>
+        <option value="Imagens Arcgis">Imagens Arcgis</option>
+        <option value="Imagens de Shapes">Imagens de Shapes</option>
+        <option value="Imagens pessoais">Imagens pessoais</option>
+        <option value="Imagens de pedras">Imagens de pedras</option>
+      </select>
+      <label>Categorias</label>
     </div>
   </div>
 
@@ -25,9 +40,10 @@
     <div class="input-field">
       <i class="material-icons prefix">mode_edit</i>
       <%= f.text_area(:description, size:"20x30", class:'materialize-textarea', id:'textarea') %>
-      <label for="textarea">Descrição</label>
+      <label for="textarea" class="active">Descrição</label>
     </div>
   </div>
+
 
   <div class="row center-align">
     <button class="btn waves-effect waves-light" type="submit" name="action">
@@ -37,3 +53,7 @@
   </div>
 
 <% end %>
+
+<script>
+  $('select').material_select();
+</script>

@@ -56,6 +56,6 @@ class ArchivesController < ApplicationController
     end
 
     def archive_params
-      params.require(:archive).permit(:avatar, :name, :description)
+      params.require(:archive).permit(:avatar, :name, :description, :category)
     end
 end
