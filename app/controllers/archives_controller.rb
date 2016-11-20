@@ -3,7 +3,7 @@ class ArchivesController < ApplicationController
 
   def index
     @q = Archive.ransack(params[:q])
-    @archives = @q.result
+    @archives = @q.result.page(params[:page]).per_page(20)
   end
 
   def show
@@ -56,6 +56,6 @@ class ArchivesController < ApplicationController
     end
 
     def archive_params
-      params.require(:archive).permit(:avatar, :name, :description)
+      params.require(:archive).permit(:avatar, :name, :description, :category)
     end
 end

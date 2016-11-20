@@ -2,11 +2,12 @@
   <div class="card-image waves-effect waves-block waves-light">
     <%= image_tag @archive.avatar.url(:medium), class:'activator' %>
   </div>
-  <div class="card-content">
+  <div class="card-content center-align">
     <span class="card-title activator grey-text text-darken-4 flow-text"><%= @archive.name %></span>
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4"><%= @archive.name %><i class="material-icons right">close</i></span>
+    <p><span class="bold">Categoria: </span><%= @archive.category %></p>
     <p><%= @archive.description %></p>
   </div>
   <div class="card-action">
@@ -37,4 +38,3 @@
     </div>
   </div>
 </div>
-

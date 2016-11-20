@@ -1,49 +1,51 @@
-<div class="row">
-  <div class="col s12 m12 l12">
-    <%= search_form_for @q do |f| %>
-      <div class="row">
-        <div class="input-field">
-          <i class="material-icons prefix">search</i>
-          <%= f.search_field :name_cont, id:"search" %>
-          <label for="search">Pesquisar</label>
+<section>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <%= search_form_for @q do |f| %>
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">search</i>
+            <%= f.search_field :name_cont %>
+          </div>
         </div>
-      </div>
-      <div class="row center-align">
-        <button class="btn waves-effect waves-light">
-          <i class="material-icons right">search</i>
-          <%= f.submit 'Pesquisar' %>
-        </button>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12 m12 l12">
-    <h2 class="center-align">Arquivos de imagem</h2>
-    <p class="center-align"><%= sort_link(@q, :name, "Ordenar", default_order: :asc) %></p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12 m12 l12">
-    <div class="carousel">
-      <% @archives.each do |archive| %>
-        <%= link_to archive, class:"carousel-item" do %>
-          <%= image_tag archive.avatar.url(:medium) %>
-          <p class="center-align bold"><%= archive.name %></p>
-        <% end %>
+        <div class="row center-align">
+          <button class="btn waves-effect waves-light">
+            <i class="material-icons right">search</i>
+            <%= f.submit 'Pesquisar' %>
+          </button>
+        </div>
       <% end %>
     </div>
   </div>
-</div>
 
-<div class="fixed-action-btn">
-  <%= link_to new_archive_path, class:'btn-floating btn-large waves-effect waves-light red' do %>
-    <i class="large material-icons">mode_edit</i>
-  <% end %>
-</div>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <h2 class="center-align">Arquivos de imagem</h2>
+      <p class="center-align"><%= sort_link(@q, :name, "Ordenar", default_order: :asc) %></p>
+    </div>
+  </div>
 
-<script>
-  $('.carousel').carousel();
-</script>
+  <div class="row card center-align">
+   <% @archives.each do |archive| %>
+      <div class="col s12 m3 l2">
+        <%= link_to archive, class:"img-link" do %>
+          <%= image_tag archive.avatar.url(:medium) %>
+          <p class="center-align bold"><%= archive.name %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <%= will_paginate @archives, previous_label:h("<"), next_label:h(">") %>
+    </div>
+  </div>
+
+  <div class="fixed-action-btn">
+    <%= link_to new_archive_path, class:'btn-floating btn-large waves-effect waves-light red' do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
+
+</section>

@@ -1,0 +1,5 @@
+class AddCategoryToArchive < ActiveRecord::Migration[5.0]
+  def change
+    add_column :archives, :category, :string
+  end
+end
