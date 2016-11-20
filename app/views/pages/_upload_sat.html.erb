@@ -1,11 +1,51 @@
-
 <%= form_for :user, url: "/pictures", :html => {:multipart => true} do |f| %>
 	<%= f.fields_for :pictures do |p| %>
    	<%= p.file_field :image %>
    <% end %>
-  <%= f.submit 'go' %>
+
+  <div class="row">
+    <div class="input-field">
+      <i class="material-icons prefix">label</i>
+      <%= f.text_field :name, class:'validate', id:'title' %>
+      <label for="title" class="active">Título</label>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="input-field">
+      <i class="material-icons prefix">label</i>
+      <select name="archive[category]" class="icons">
+        <option value="" disabled selected>Escolha a categoria</option>
+        <option value="Imagens de satélite">Satélite</option>
+        <option value="Imagens Arcgis">Arcgis</option>
+        <option value="Imagens de Shapes">Shapes</option>
+      </select>
+      <label>Categorias</label>
+    </div>
+  </div>
+
+	<!-- Fix bug with this textarea -->
+	<% if false %>
+  <div class="row">
+    <div class="input-field">
+      <i class="material-icons prefix">mode_edit</i>
+      <%= f.text_area(:description, size:"20x30", class:'materialize-textarea', id:'textarea') %>
+      <label for="textarea" class="active">Descrição</label>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="row center-align">
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+      <i class="material-icons right">send</i>
+      <%= f.submit 'Pronto' %>
+    </button>
+  </div>
 <% end %>
 
+
+<!-- Show picures -->
+<% if false %>
 <% @user.pictures.each do |p| %>
 <div class="card">
   <%= cl_image_tag(p.image.url, :width => 318, :height => 180, :folder => "arcgis", :class => "card-img-top") %>
@@ -14,5 +54,10 @@
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
 </div>
+<% end %>
 
 <% end %>
+
+<script>
+  $('select').material_select();
+</script>

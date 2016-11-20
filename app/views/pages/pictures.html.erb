@@ -19,51 +19,40 @@
         </div>
       <% end %>
     <% end %>
-      
     </div>
   </div>
 
-<!-- Add Photo Modal -->
-<div class="row">
-    <a class="modal-trigger waves-effect waves-light btn" href="#modal1"><i class="material-icons">add_a_photo</i>Imagem</a>  
-
-    <div id="modal1" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <h4>Modal Header</h4>
-        <%= render "upload_sat" %>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tabs -->
+<!-- Tabs -->
   <div class="row">
-    <div class="col s12">
+    <div class="col s10 offset-s2">
       <ul class="tabs">
-        <li class="tab col s4"><a href="#sat">Satélite</a></li>
-        <li class="tab col s4"><a class="active" href="#arcgis">Arcgis</a></li>
-        <li class="tab col s4"><a href="#shapes">Shapes</a></li>
+        <li class="tab col s3"><a href="#sat">Satélite</a></li>
+        <li class="tab col s3"><a class="active" href="#arcgis">Arcgis</a></li>
+        <li class="tab col s3"><a href="#shapes">Shapes</a></li>
       </ul>
     </div>
+</div>
 
 <!-- Conteiners of Tabs -->
 <div id="sat">
   <!-- Cards here -->
-  </div>
+  <%= render 'upload_sat' %>
+</div>
 
 <div id="arcgis">
   <!-- Cards here -->
+  <%= render 'upload_arcgis' %>
 </div>
   
 <div id="shapes">
   <!-- Cards here -->
+  <%= render 'upload_shape' %>
 </div>
 
 <!-- Sort Images -->
+<!-- COMMENTED:-FIX this -->
 <% if false %>
-  <div class="row">
+   <div class="row">
     <div class="col s12 m12 l12">
       <p class="center-align"><%= sort_link(@q, :name, "Ordenar", default_order: :asc) %></p>
     </div>
@@ -72,8 +61,9 @@
 
   <!-- Show Images -->
   <!-- IMPORTANT:- This cards images will be into containers of  tabs. -->
+  <!-- COMMENTED:-FIX this. -->>
   <% if false %>
-  <div class="row card center-align">
+    <div class="row card center-align">
    <% @archives.each do |archive| %>
       <div class="col s12 m3 l2">
         <%= link_to archive, class:"img-link" do %>
@@ -84,27 +74,22 @@
     <% end %>
   </div>
   <% end %>
-
+  
 <!-- Pagination -->
+<!-- COMMENTED:- FIX this -->
 <% if false %>
   <div class="row">
     <div class="col s12 m12 l12">
       <%= will_paginate @archives, previous_label:h("<"), next_label:h(">") %>
     </div>
   </div>
-  <% end %>
+<% end %>
 
   <!-- Back Page -->
-  <% if false %>
   <div class="fixed-action-btn">
     <%= link_to new_archive_path, class:'btn-floating btn-large waves-effect waves-light red' do %>
       <i class="large material-icons">add</i>
     <% end %>
   </div>
-  <% end %>
 </section>
-
-<script>
-    $('.modal').modal();
-</script>
 
