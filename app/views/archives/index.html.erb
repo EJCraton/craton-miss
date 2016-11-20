@@ -1,6 +1,11 @@
+<div class="container">
+
 <section>
+  <!-- Search field -->
+  <!-- Commented -->
   <div class="row">
     <div class="col s12 m12 l12">
+    <% if false %>
       <%= search_form_for @q do |f| %>
         <div class="row">
           <div class="input-field">
@@ -15,16 +20,44 @@
           </button>
         </div>
       <% end %>
+    <% end %>
+      
     </div>
   </div>
 
+<!-- Tabs -->
+  <div class="row">
+    <div class="col s10 offset-s2">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#sat">Satélite</a></li>
+        <li class="tab col s3"><a class="active" href="#arcgis">Arcgis</a></li>
+        <li class="tab col s3"><a href="#shapes">Shapes</a></li>
+      </ul>
+    </div>
+</div>
+
+<!-- Conteiners of Tabs -->
+<div id="sat">
+  <!-- Cards here -->
+</div>
+
+<div id="arcgis">
+  <!-- Cards here -->
+</div>
+  
+<div id="shapes">
+  <!-- Cards here -->
+</div>
+
+<!-- Sort Images -->
   <div class="row">
     <div class="col s12 m12 l12">
-      <h2 class="center-align">Arquivos de imagem</h2>
       <p class="center-align"><%= sort_link(@q, :name, "Ordenar", default_order: :asc) %></p>
     </div>
   </div>
 
+  <!-- Show Images -->
+  <!-- IMPORTANT:- This cards images will be into containers of  tabs. -->
   <div class="row card center-align">
    <% @archives.each do |archive| %>
       <div class="col s12 m3 l2">
@@ -36,16 +69,19 @@
     <% end %>
   </div>
 
+<!-- Pagination -->
   <div class="row">
     <div class="col s12 m12 l12">
       <%= will_paginate @archives, previous_label:h("<"), next_label:h(">") %>
     </div>
   </div>
 
+  <!-- Back Page -->
   <div class="fixed-action-btn">
     <%= link_to new_archive_path, class:'btn-floating btn-large waves-effect waves-light red' do %>
       <i class="large material-icons">add</i>
     <% end %>
   </div>
-
 </section>
+</div>
+
