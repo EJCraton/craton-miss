@@ -1,25 +1,90 @@
-<!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#sat" role="tab">Imagens de Satélite</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#arcgis" role="tab">Projeto arcGIS</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#shapes" role="tab">Shapes</a>
-  </li>
-</ul>
+<div class="container">
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="sat" role="tabpanel">
-      <%= render "upload_sat"%>  
+<section>
+  <!-- Search field -->
+  <!-- Commented -->
+  <div class="row">
+    <div class="col s12 m12 l12">
+    <% if false %>
+      <%= search_form_for @q do |f| %>
+        <div class="row">
+          <div class="input-field">
+            <i class="material-icons prefix">search</i>
+            <%= f.search_field :name_cont %>
+          </div>
+        </div>
+        <div class="row center-align">
+          <button class="btn waves-effect waves-light">
+            <i class="material-icons right">search</i>
+            <%= f.submit 'Pesquisar' %>
+          </button>
+        </div>
+      <% end %>
+    <% end %>
+      
+    </div>
   </div>
-  <div class="tab-pane" id="arcgis" role="tabpanel">
-     <%= render "upload_arcgis" %>
-  </div>
-  <div class="tab-pane" id="shapes" role="tabpanel">
-     <%= render "upload_shape" %>
-  </div>
+
+<!-- Tabs -->
+  <div class="row">
+    <div class="col s10 offset-s2">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#sat">Satélite</a></li>
+        <li class="tab col s3"><a class="active" href="#arcgis">Arcgis</a></li>
+        <li class="tab col s3"><a href="#shapes">Shapes</a></li>
+      </ul>
+    </div>
 </div>
+
+<!-- Conteiners of Tabs -->
+<div id="sat">
+  <!-- Cards here -->
+  <%= render 'upload_sat' %>
+</div>
+
+<div id="arcgis">
+  <!-- Cards here -->
+  <%= render 'upload_arcgis' %>
+</div>
+  
+<div id="shapes">
+  <!-- Cards here -->
+  <%= render 'upload_shape' %>
+</div>
+
+<!-- Sort Images -->
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <p class="center-align"><%= sort_link(@q, :name, "Ordenar", default_order: :asc) %></p>
+    </div>
+  </div>
+
+  <!-- Show Images -->
+  <!-- IMPORTANT:- This cards images will be into containers of  tabs. -->
+  <div class="row card center-align">
+   <% @archives.each do |archive| %>
+      <div class="col s12 m3 l2">
+        <%= link_to archive, class:"img-link" do %>
+          <%= image_tag archive.avatar.url(:medium) %>
+          <p class="center-align bold"><%= archive.name %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+<!-- Pagination -->
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <%= will_paginate @archives, previous_label:h("<"), next_label:h(">") %>
+    </div>
+  </div>
+
+  <!-- Back Page -->
+  <div class="fixed-action-btn">
+    <%= link_to new_archive_path, class:'btn-floating btn-large waves-effect waves-light red' do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
+</section>
+</div>
+
