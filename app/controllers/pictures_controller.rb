@@ -5,17 +5,21 @@ class PicturesController < ApplicationController
 	def create
 		@user = current_user
 		category = params[:pictures][:category]
+		title = params[:user][:pictures][:title]
+		image = params[:user][:pictures]['image']
+		description = params[:user][:pictures][:description]
 
-		if category == 'picures'
-			@user.pictures.create(image: params[:user][:pictures]['image'])
+		if category == 'pictures'
+			@user.pictures.create(image: image, title: title, description: description)
 		end
 
 		if category == 'arcgis'
-			@user.arcgis.create(image: params[:user][:pictures]['image'])
+			@user.arcgis.create(image: image, title:
+				title, description: description)
 		end
 
 		if category == 'shapes'
-			@user.shapes.create(image: params[:user][:pictures]['image'])
+			@user.shapes.create(image: image, title: title, description: description)
 		end
 	end
 

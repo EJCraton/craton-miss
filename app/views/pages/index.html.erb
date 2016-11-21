@@ -1,3 +1,16 @@
 <% if not logged_in? %>
 	<%= render partial: "sessions/login" %>
+<% else %>
+	<div class="row">
+		<div class="col s12 offset-s1">
+			<h3>Bem Vindo ao Gerenciador de Imagens Geográficas da Cráton</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="s8 offset-s2">
+			<h5> Para utilizar, clique no ícone ao lado esquerdo da barra 
+				superior. </h1>
+			</div>
+	</div>
 <%end%>

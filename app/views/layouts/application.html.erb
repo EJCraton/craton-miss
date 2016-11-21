@@ -41,35 +41,44 @@
                 <%= image_tag("logo.png", class:"image") %>
               </div>
               <% if logged_in? %>
-                <a href="#!name"><span class="name center-align">Nome do usuario</span></a>
-                <a href="#!email"><span class="email center-align">Email do usuario</span></a>
+                <a href="#!name"><span class="name center-align"><%= current_user.name %></span></a>
+                <a href="#!email"><span class="email center-align"><%= current_user.email %></span></a>
               <% end %>
             </div>
           </li>
-          <li><a class="subheader">Empresa Junior</a></li>
-          <% if logged_in? %>
-            <li><a href="#" class="waves-effect"><i class="material-icons"><i class="material-icons">assignment_return</i>Sair</a></li>
-          <% else %>
-            <li><%= link_to sign_in_url, class:'waves-effect' do %>
-                  <i class="material-icons">account_circle</i>
-                  Login
-                <% end %>
-            </li>
+          <li><a class="subheader">Cráton Empresa Júnior</a></li>
+          <% if false %>
+            <% if logged_in? %>
+              <li><a href="#" class="waves-effect"><i class="material-icons"><i class="material-icons">assignment_return</i>Sair</a></li>
+            <% else %>
+              <li><%= link_to sign_in_url, class:'waves-effect' do %>
+                <i class="material-icons">account_circle</i>
+                  Login </li>
+            <% end %>
+          <% end %>
             <li><%= link_to signup_user_url, class:'waves-effect' do %>
                   <i class="material-icons">assignment_ind</i>
                   Cadastrar
                 <% end %>
             </li>
           <% end %>
-          
-          
+
+          <%if logged_in?%>
+              <li><%= link_to sign_out_path, method: 'delete', class: 'waves-effect' do %> <i class="material-icons">assignment_return</i>Sair</a></li>
+            <% end %>
+
             <li><div class="divider"></div></li>
             <li><a class="subheader">Banco de dados</a></li>
-            <li><%= link_to archives_path, class:'waves-effect' do %>
+            <li><%= link_to '/pages/upload', class:'waves-effect' do %>
                   <i class="material-icons">images</i>
                   Banco de imagens
                 <% end %>
             </li>
+          <%end%>
+          
+          
+          
+            
            
           
           </ul>
