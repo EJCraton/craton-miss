@@ -51,14 +51,77 @@
 <!-- Conteiners of Tabs -->
 <div id="sat">
   <!-- Cards here -->
-  </div>
+    <% @user.pictures.each_slice(3) do |group| %>
+      <div class="row">
+        <% group.each do |picture| %>
+        <div class="col s4">
+          <div class="card">
+            <div class="card-image">
+              <%= cl_image_tag(picture.image.url, :folder => "arcgis", :class => "card-img-top materialboxed") %>
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Download</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div> 
+    <% end %>
+</div>
 
 <div id="arcgis">
   <!-- Cards here -->
+    <% @user.arcgis.each_slice(3) do |group| %>
+      <div class="row">
+        <% group.each do |picture| %>
+        <div class="col s4">
+          <div class="card">
+            <div class="card-image">
+              <%= cl_image_tag(picture.image.url, :folder => "arcgis", :class => "card-img-top materialboxed") %>
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Download</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div> 
+    <% end %>
 </div>
-  
+
 <div id="shapes">
   <!-- Cards here -->
+    <% @user.shapes.each_slice(3) do |group| %>
+      <div class="row">
+        <% group.each do |picture| %>
+        <div class="col s4">
+          <div class="card">
+            <div class="card-image">
+              <%= cl_image_tag(picture.image.url, :folder => "arcgis", :class => "card-img-top materialboxed") %>
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Download</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div> 
+    <% end %>
 </div>
 
 <!-- Sort Images -->

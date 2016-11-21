@@ -1,28 +1,28 @@
 <%= form_for :user, url: "/pictures", :html => {:multipart => true} do |f| %>
 	<%= f.fields_for :pictures do |p| %>
    	<%= p.file_field :image %>
+
+   	<div class="row">
+   		<div class="input-field">
+   			<i class="material-icons prefix">label</i>
+   			<%= p.text_field :name, class:'validate', id:'title' %>
+   			<label for="title" class="active">Título</label>
+   		</div>
+   	</div>
+
+   	<div class="row">
+   		<div class="input-field">
+   			<i class="material-icons prefix">label</i>
+   			<select name="pictures[category]" class="icons">
+   				<option value="" disabled selected>Escolha a categoria</option>
+   				<option value="pictures">Satélite</option>
+   				<option value="arcgis">Arcgis</option>
+   				<option value="shapes">Shapes</option>
+   			</select>
+   			<label>Categorias</label>
+   		</div>
+   	</div>
    <% end %>
-
-  <div class="row">
-    <div class="input-field">
-      <i class="material-icons prefix">label</i>
-      <%= f.text_field :name, class:'validate', id:'title' %>
-      <label for="title" class="active">Título</label>
-    </div>
-  </div>
-
-<div class="row">
-    <div class="input-field">
-      <i class="material-icons prefix">label</i>
-      <select name="archive[category]" class="icons">
-        <option value="" disabled selected>Escolha a categoria</option>
-        <option value="Imagens de satélite">Satélite</option>
-        <option value="Imagens Arcgis">Arcgis</option>
-        <option value="Imagens de Shapes">Shapes</option>
-      </select>
-      <label>Categorias</label>
-    </div>
-  </div>
 
 	<!-- Fix bug with this textarea -->
 	<% if false %>
