@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-# Image upload
-gem "paperclip", "~> 5.0.0"
 # Materialize
 gem 'materialize-sass'
 # Search
@@ -37,13 +35,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'twitter-bootstrap-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'bootstrap', '~> 4.0.0.alpha3'
-gem 'bootstrap-sass'
-gem 'bootstrap_form'
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
 
 gem 'carrierwave'
 gem 'cloudinary'

@@ -23,6 +23,9 @@ class PicturesController < ApplicationController
 		end
 	end
 
+	def delete
+	end
+
 	private
 	def pictures_params
 		params.require(:user).permit(:paassword, :password_confirmation,pictures_attributes: [:id, :image])

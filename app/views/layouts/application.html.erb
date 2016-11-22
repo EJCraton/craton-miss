@@ -56,11 +56,6 @@
                   Login </li>
             <% end %>
           <% end %>
-            <li><%= link_to signup_user_url, class:'waves-effect' do %>
-                  <i class="material-icons">assignment_ind</i>
-                  Cadastrar
-                <% end %>
-            </li>
           <% end %>
 
           <%if logged_in?%>
@@ -72,6 +67,12 @@
             <li><%= link_to '/pages/upload', class:'waves-effect' do %>
                   <i class="material-icons">images</i>
                   Banco de imagens
+                <% end %>
+            </li>
+          <% else %>
+            <li><%= link_to signup_user_url, class:'waves-effect' do %>
+                  <i class="material-icons">assignment_ind</i>
+                  Cadastrar
                 <% end %>
             </li>
           <%end%>
